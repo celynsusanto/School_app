@@ -1,0 +1,28 @@
+{
+  "name": "sequelize-one-to-many",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/active-fox-2018/sequelize-one-to-many.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/active-fox-2018/sequelize-one-to-many/issues"
+  },
+  "homepage": "https://github.com/active-fox-2018/sequelize-one-to-many#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9",
+    "pg": "^7.8.0",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0"
+  }
+}

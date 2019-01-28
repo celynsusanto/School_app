@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/table-style')%>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1 style= "text-align: center"> Subjects Data </h1>
+    <h2 style = "text-align: center"><a href = "/subjects/add">Add Subject</a></h2>
+    <table>
+        <tr>
+            <th>Subject Name</th>
+            <th>Teacher</th>
+            <th>Actions</th>
+            <th>Options</th>
+        </tr>
+        <%subjects.forEach(subject => {%>
+            <tr>
+                <td><%= subject.subject_name%></td>
+                <td>
+                    <% if (subject.dataValues.Teachers.length > 0) {%>
+                        <ol>
+                        <% subject.dataValues.Teachers.forEach(teacher => {%>
+                            <li><%=teacher.first_name%> <%=teacher.last_name%></li><br>
+                        <%})%>
+                        </ol>
+                    <%}%>
+                </td>
+                <td><a href = "/subjects/<%= subject.id%>/enrolled-students"> Enrolled Students </a></td>
+                <td><a href = "/subjects/delete/<%= subject.id %>" onclick="return confirm('Delete this Subject?')">Delete</a></td>
+            </tr>
+        <%})%>
+    </table>
+</body>
+
+</html>
+
+

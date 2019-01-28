@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/form-style')%>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1 style = "text-align: center;">Add Student Data</h1>
+    <form action = '/students/add' method = 'POST'>
+        First Name
+        <input type="text" name="first_name" required>
+        Last Name
+        <input type="text" name="last_name" required>
+        Email
+        <input type="text" name="email" required><br>
+        <button type= 'submit' style ="height: 30px; width: 100px; float: right">Submit</button>
+    </form>
+</body>
+
+</html>

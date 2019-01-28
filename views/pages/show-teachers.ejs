@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/table-style')%>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1 style= "text-align: center"> Teachers Data </h1>
+    <h2 style = "text-align: center"><a href = "/teachers/add">Add Teacher</a></h2>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Options</th>
+        </tr>
+        <%teachers.forEach(teacher => {%>
+            <tr>
+                <td><%= teacher.first_name %></td>
+                <td><%= teacher.last_name%></td>
+                <td><%= teacher.email %></td>
+                <% if (!teacher.Subject) {
+                    teacher.Subject = 'unassigned'
+                }%>
+                <td> <%= teacher.Subject.subject_name %> </td>
+                <td><a href = "/teachers/edit/<%= teacher.id %>">Edit</a> || <a href = "/teachers/delete/<%= teacher.id %>" onclick="return confirm('Delete this Teacher?')">Delete</a></td>
+            </tr>
+        <%})%>
+    </table>
+</body>
+
+</html>

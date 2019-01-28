@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/table-style')%>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1 style= "text-align: center"> Students Data </h1>
+    <h2 style = "text-align: center"><a href = "/students/add">Add Student</a></h2>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+            <th>Options</th>
+        </tr>
+        <%students.forEach(student => {%>
+            <tr>
+                <td><%= student.first_name %></td>
+                <td><%= student.last_name%></td>
+                <td><%= student.email %></td>
+                <td><a href = "/students/<%= student.id %>/add-subject">Add Subject</a></td>
+                <td><a href = "/students/edit/<%= student.id %>">Edit</a> || <a href = "/students/delete/<%= student.id %>" onclick="return confirm('Delete this Student?')">Delete</a></td>
+            </tr>
+        <%})%>
+    </table>
+</body>
+
+</html>

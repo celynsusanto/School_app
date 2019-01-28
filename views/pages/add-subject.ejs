@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/table-style')%>
+    <%- include('../partials/alerts')%>
+
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <% if (msg) {%>
+    <div class="success-msg">
+        <i class="fa fa-times-circle"></i>
+        <%= msg%>
+    </div>
+    <%}%>
+    <h1 style= "text-align: center"> Add Subject to Student </h1>
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td><%= student.first_name %></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><%= student.last_name%></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= student.email %></td>
+        </tr>
+    </table><br>
+    <form action = "/students/<%= student.id%>/add-subject" method = "POST">
+        <select style= 'height: 30px;  font-size: 15px;' name="subject" required >
+            <option style="display:none;">--Please choose an option--</option>
+            <% subjects.forEach((subject) => {%>
+                <option value="<%= subject.subject_name %>"><%= subject.subject_name %></option>
+            <%})%>
+        </select><br><br>
+        <button type= 'submit' style ="height: 30px; width: 100px;">Add Subject</button>
+    </form>
+
+</select>
+
+</body>
+
+</html>

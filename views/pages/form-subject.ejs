@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/form-style')%>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1 style = "text-align: center;">Add Subject Data</h1>
+    <form action = '/subjects/add' method = 'POST'>
+        Subject Name
+        <input type="text" name="subject_name" required>
+        <button type= 'submit' style ="height: 30px; width: 100px; float: right">Submit</button>
+    </form>
+</body>
+
+</html>

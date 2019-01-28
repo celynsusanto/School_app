@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/form-style')%>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <h1 style = "text-align: center;">Edit Teacher Data</h1>
+    <form action = '/teachers/edit/ <%= teacher.id %>' method = 'POST'>
+        First Name
+        <input type="text" name="first_name" value = <%= teacher.first_name %>>
+        Last Name
+        <input type="text" name="last_name" value = <%= teacher.last_name %>>
+        Email
+        <input type="text" name="email" value = <%= teacher.email %>><br>
+        Subject <br>
+        <select name="subject" required>
+            <% if (!teacher.Subject) {%>
+                <option style="display:none">--Please choose an option--</option>
+            <%}%>
+            <% subjects.forEach((subject) => {%>
+                <% if (teacher.Subject && subject.subject_name === teacher.Subject.subject_name) { %>
+                    <option value="<%= subject.subject_name %>" selected><%= subject.subject_name %></option>
+                <% } else { %>
+                    <option value="<%= subject.subject_name %>"><%= subject.subject_name %></option>
+                <%} 
+            })%>
+        </select>
+        <button type= 'submit' style ="height: 30px; width: 100px; float: right">Submit</button>
+    </form>
+</body>
+
+</html>

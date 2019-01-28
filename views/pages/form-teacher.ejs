@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../partials/navbar-style') %>
+    <%- include('../partials/form-style')%>
+    <%- include('../partials/alerts')%>
+
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+    <% if (msg) {%>
+        <div class="error-msg">
+            <i class="fa fa-times-circle"></i>
+            <%= msg%>
+        </div>
+    <%}%>
+    <h1 style = "text-align: center;">Add Teacher Data</h1>
+    <form action = '/teachers/add' method = 'POST'>
+        First Name
+        <input type="text" name="first_name" required>
+        Last Name
+        <input type="text" name="last_name" required>
+        Email
+        <input type="text" name="email" required><br>
+        Subject <br>
+        <select name="subject" required>
+            <option style="display:none">--Please choose an option--</option>
+            <% subjects.forEach((subject) => {%>
+                <option value="<%= subject.subject_name %>"><%= subject.subject_name %></option>
+            <%})%>
+        </select>
+        <button type= 'submit' style ="height: 30px; width: 100px; float: right">Submit</button>
+    </form>
+</body>
+
+</html>
